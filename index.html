@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -6,575 +7,523 @@
 <title>STREET COMPLETE</title>
 
 <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
 
-html {
-  scroll-behavior: smooth;
+html{
+  scroll-behavior:smooth;
 }
 
-body {
-  font-family: Arial, "Noto Sans KR", sans-serif;
-  background: #050505;
-  color: #fff;
-  overflow-x: hidden;
+body{
+  font-family:Arial, "Noto Sans KR", sans-serif;
+  background:#050505;
+  color:#fff;
+  overflow-x:hidden;
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
+a{
+  text-decoration:none;
+  color:inherit;
 }
 
-.nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 76px;
-  padding: 0 72px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  z-index: 100;
-  background: rgba(5,5,5,0.74);
-  backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(255,255,255,0.08);
+.nav{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:76px;
+  padding:0 72px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  z-index:100;
+  background:rgba(5,5,5,0.74);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid rgba(255,255,255,0.08);
 }
 
-.nav-logo {
-  font-size: 22px;
-  font-weight: 900;
-  letter-spacing: 1px;
+.nav-logo{
+  font-size:22px;
+  font-weight:900;
+  letter-spacing:1px;
 }
 
-.nav-menu {
-  display: flex;
-  gap: 38px;
-  font-size: 14px;
-  font-weight: 800;
-  letter-spacing: 1px;
-  color: #d4d4d4;
+.nav-menu{
+  display:flex;
+  gap:38px;
+  font-size:14px;
+  font-weight:800;
+  letter-spacing:1px;
+  color:#d4d4d4;
 }
 
-.nav-menu a:hover {
-  color: #9cff3a;
+.nav-menu a:hover{
+  color:#9cff3a;
 }
 
-.page {
-  min-height: 100vh;
-  padding: 110px 8%;
-  display: flex;
-  align-items: center;
-  position: relative;
-  overflow: hidden;
+.page{
+  min-height:100vh;
+  padding:110px 8%;
+  display:flex;
+  align-items:center;
+  position:relative;
+  overflow:hidden;
 }
 
-.hero {
+.hero{
   background:
-    linear-gradient(90deg, rgba(0,0,0,0.92), rgba(0,0,0,0.58), rgba(0,0,0,0.2)),
-    url("hero-bg.png");
-  background-size: cover;
-  background-position: center;
+  linear-gradient(90deg, rgba(0,0,0,0.92), rgba(0,0,0,0.58), rgba(0,0,0,0.2)),
+  url("hero-bg.png");
+  background-size:cover;
+  background-position:center;
 }
 
-.hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
   background:
-    radial-gradient(circle at 78% 46%, rgba(156,255,58,0.22), transparent 34%),
-    linear-gradient(180deg, transparent 60%, #050505 100%);
-  pointer-events: none;
+  radial-gradient(circle at 78% 46%, rgba(156,255,58,0.22), transparent 34%);
 }
 
-.hero-content {
-  position: relative;
-  z-index: 2;
-  max-width: 760px;
+.hero-content{
+  position:relative;
+  z-index:2;
+  max-width:760px;
 }
 
 .eyebrow,
-.section-label {
-  display: inline-block;
-  margin-bottom: 20px;
-  font-size: 13px;
-  font-weight: 900;
-  letter-spacing: 3px;
-  color: #9cff3a;
+.section-label{
+  display:inline-block;
+  margin-bottom:20px;
+  font-size:13px;
+  font-weight:900;
+  letter-spacing:3px;
+  color:#9cff3a;
 }
 
-.hero h1 {
-  font-size: clamp(58px, 8vw, 118px);
-  line-height: 0.94;
-  font-weight: 900;
-  letter-spacing: -4px;
-  margin-bottom: 26px;
+.hero h1{
+  font-size:clamp(58px,8vw,118px);
+  line-height:0.94;
+  font-weight:900;
+  letter-spacing:-4px;
+  margin-bottom:26px;
 }
 
-.hero-sub {
-  font-size: clamp(20px, 2vw, 30px);
-  font-weight: 800;
-  color: #eeeeee;
-  margin-bottom: 18px;
+.hero-sub{
+  font-size:clamp(20px,2vw,30px);
+  font-weight:800;
+  color:#eeeeee;
+  margin-bottom:18px;
 }
 
 .hero-desc,
-.section-desc {
-  font-size: 18px;
-  line-height: 1.85;
-  color: #c7c7c7;
+.section-desc{
+  font-size:18px;
+  line-height:1.85;
+  color:#c7c7c7;
 }
 
-.hero-desc {
-  max-width: 640px;
-  margin-bottom: 36px;
+.hero-desc{
+  max-width:640px;
+  margin-bottom:36px;
 }
 
-.btn-row {
-  display: flex;
-  gap: 14px;
-  flex-wrap: wrap;
+.btn-row{
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
 }
 
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 150px;
-  padding: 15px 25px;
-  border-radius: 999px;
-  font-size: 14px;
-  font-weight: 900;
-  border: 1px solid rgba(255,255,255,0.16);
-  transition: 0.25s;
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-width:150px;
+  padding:15px 25px;
+  border-radius:999px;
+  font-size:14px;
+  font-weight:900;
+  border:1px solid rgba(255,255,255,0.16);
+  transition:0.25s;
 }
 
-.btn-primary {
-  background: linear-gradient(135deg,#9cff3a,#4ade80);
-  color: #081108;
-  box-shadow: 0 0 32px rgba(156,255,58,0.28);
+.btn-primary{
+  background:linear-gradient(135deg,#9cff3a,#4ade80);
+  color:#081108;
+  box-shadow:0 0 32px rgba(156,255,58,0.28);
 }
 
-.btn-secondary {
-  background: rgba(255,255,255,0.08);
+.btn-secondary{
+  background:rgba(255,255,255,0.08);
 }
 
-.btn:hover {
-  transform: translateY(-3px);
+.btn:hover{
+  transform:translateY(-3px);
 }
 
-.section-title {
-  font-size: clamp(38px, 5.5vw, 76px);
-  font-weight: 900;
-  letter-spacing: -3px;
-  line-height: 1.02;
-  margin-bottom: 26px;
+.section-title{
+  font-size:clamp(38px,5.5vw,76px);
+  font-weight:900;
+  letter-spacing:-3px;
+  line-height:1.02;
+  margin-bottom:26px;
 }
 
-.about {
-  background: #080808;
+.about{
+  background:#080808;
 }
 
-.about-layout {
-  width: 100%;
-  display: grid;
-  grid-template-columns: 0.95fr 1.05fr;
-  gap: 72px;
-  align-items: center;
+.about-layout{
+  width:100%;
+  display:grid;
+  grid-template-columns:0.95fr 1.05fr;
+  gap:72px;
+  align-items:center;
 }
 
-.about-copy {
-  font-size: 18px;
-  line-height: 1.9;
-  color: #c8c8c8;
+.about-copy{
+  font-size:18px;
+  line-height:1.9;
+  color:#c8c8c8;
 }
 
-.history-panel {
-  padding: 44px;
-  border-radius: 34px;
-  background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
-  border: 1px solid rgba(255,255,255,0.12);
-  box-shadow: 0 30px 80px rgba(0,0,0,0.35);
+.history-panel{
+  padding:44px;
+  border-radius:34px;
+  background:linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
+  border:1px solid rgba(255,255,255,0.12);
+  box-shadow:0 30px 80px rgba(0,0,0,0.35);
 }
 
-.history-title {
-  font-size: 30px;
-  font-weight: 900;
-  margin-bottom: 28px;
+.history-title{
+  font-size:30px;
+  font-weight:900;
+  margin-bottom:28px;
 }
 
-.history-item {
-  display: grid;
-  grid-template-columns: 130px 1fr;
-  gap: 24px;
-  padding: 22px 0;
-  border-top: 1px solid rgba(255,255,255,0.1);
+.history-item{
+  display:grid;
+  grid-template-columns:130px 1fr;
+  gap:24px;
+  padding:22px 0;
+  border-top:1px solid rgba(255,255,255,0.1);
 }
 
-.history-item:last-child {
-  border-bottom: 1px solid rgba(255,255,255,0.1);
+.history-item:last-child{
+  border-bottom:1px solid rgba(255,255,255,0.1);
 }
 
-.history-date {
-  color: #9cff3a;
-  font-weight: 900;
+.history-date{
+  color:#9cff3a;
+  font-weight:900;
 }
 
-.history-text {
-  color: #eeeeee;
-  font-weight: 700;
-  line-height: 1.6;
+.history-text{
+  color:#eeeeee;
+  font-weight:700;
+  line-height:1.6;
 }
 
-.games {
+.games{
   background:
-    linear-gradient(90deg, rgba(5,5,5,0.96), rgba(5,5,5,0.78), rgba(5,5,5,0.48)),
-    url("hero-bg.png");
-  background-size: cover;
-  background-position: center;
+  linear-gradient(90deg, rgba(5,5,5,0.96), rgba(5,5,5,0.78), rgba(5,5,5,0.48)),
+  url("hero-bg.png");
+  background-size:cover;
+  background-position:center;
 }
 
-.game-layout {
-  width: 100%;
-  display: grid;
-  grid-template-columns: 42% 58%;
-  gap: 56px;
-  align-items: center;
+.game-layout{
+  width:100%;
+  display:grid;
+  grid-template-columns:42% 58%;
+  gap:56px;
+  align-items:center;
 }
 
-.game-info {
-  position: relative;
-  z-index: 5;
+.game-info{
+  position:relative;
+  z-index:5;
 }
 
-.game-logo {
-  width: min(440px,100%);
-  margin-bottom: 26px;
-  filter: drop-shadow(0 0 22px rgba(156,255,58,0.2));
+.game-logo{
+  width:min(440px,100%);
+  margin-bottom:26px;
 }
 
-/* Store badge buttons */
-.store-row {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  flex-wrap: wrap;
-  margin-top: 34px;
+.store-row{
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+  margin-top:34px;
 }
 
-.store-badge {
-  height: 58px;
-  min-width: 174px;
-  display: inline-flex;
-  align-items: center;
-  gap: 11px;
-  padding: 8px 15px 8px 13px;
-  border-radius: 9px;
-  background: #000;
-  color: #fff;
-  border: 1px solid rgba(255,255,255,0.22);
-  box-shadow: 0 10px 26px rgba(0,0,0,0.55);
-  transition: 0.22s;
+.official-badge{
+  height:58px;
+  width:auto;
+  transition:0.22s;
+  filter:
+  drop-shadow(0 10px 22px rgba(0,0,0,0.45));
 }
 
-.store-badge:hover {
-  transform: translateY(-3px);
-  border-color: rgba(255,255,255,0.38);
+.official-badge:hover{
+  transform:translateY(-3px);
 }
 
-.badge-icon {
-  width: 34px;
-  height: 34px;
-  flex: 0 0 34px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.device-stage{
+  position:relative;
+  width:100%;
+  height:650px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:visible;
 }
 
-.badge-icon svg {
-  width: 100%;
-  height: 100%;
-  display: block;
+.device-glow{
+  position:absolute;
+  width:620px;
+  height:620px;
+  background:radial-gradient(circle, rgba(156,255,58,0.24), transparent 62%);
+  filter:blur(22px);
+  z-index:0;
 }
 
-.badge-copy {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.02;
-  white-space: nowrap;
+.phone{
+  position:relative;
+  z-index:4;
+  width:305px;
+  aspect-ratio:9 / 19.5;
+  padding:12px;
+  border-radius:40px;
+  background:linear-gradient(145deg,#f2f2f2,#111 22%,#000);
+  box-shadow:0 35px 90px rgba(0,0,0,0.68);
+  transform:rotate(-4deg);
 }
 
-.badge-small {
-  font-size: 10px;
-  font-weight: 700;
-  color: #f1f1f1;
-  letter-spacing: -0.1px;
-  margin-bottom: 3px;
+.phone::before{
+  content:"";
+  position:absolute;
+  top:13px;
+  left:50%;
+  transform:translateX(-50%);
+  width:92px;
+  height:24px;
+  border-radius:999px;
+  background:#050505;
+  z-index:8;
 }
 
-.badge-big {
-  font-size: 21px;
-  font-weight: 800;
-  color: #fff;
-  letter-spacing: -0.8px;
+.phone-screen{
+  width:100%;
+  height:100%;
+  border-radius:31px;
+  overflow:hidden;
+  position:relative;
+  background:#111;
 }
 
-.badge-big.one {
-  font-size: 20px;
-  letter-spacing: -0.5px;
+.phone-screen img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  opacity:0;
+  animation:slideShow 9s infinite;
 }
 
-/* Right game showcase */
-.device-stage {
-  position: relative;
-  width: 100%;
-  height: 650px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: visible;
+.phone-screen .shot-1{
+  animation-delay:0s;
 }
 
-.device-glow {
-  position: absolute;
-  width: 620px;
-  height: 620px;
-  background: radial-gradient(circle, rgba(156,255,58,0.24), transparent 62%);
-  filter: blur(22px);
-  z-index: 0;
+.phone-screen .shot-2{
+  animation-delay:3s;
 }
 
-.phone {
-  position: relative;
-  z-index: 4;
-  width: 305px;
-  aspect-ratio: 9 / 19.5;
-  padding: 12px;
-  border-radius: 40px;
-  background: linear-gradient(145deg,#f2f2f2,#111 22%,#000);
-  box-shadow: 0 35px 90px rgba(0,0,0,0.68);
-  transform: rotate(-4deg);
+.phone-screen .shot-3{
+  animation-delay:6s;
 }
 
-.phone::before {
-  content: "";
-  position: absolute;
-  top: 13px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 92px;
-  height: 24px;
-  border-radius: 999px;
-  background: #050505;
-  z-index: 8;
-}
+@keyframes slideShow{
 
-.phone-screen {
-  width: 100%;
-  height: 100%;
-  border-radius: 31px;
-  overflow: hidden;
-  position: relative;
-  background: #111;
-}
-
-.phone-screen img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0;
-  animation: slideShow 9s infinite;
-}
-
-.phone-screen .shot-1 {
-  animation-delay: 0s;
-}
-
-.phone-screen .shot-2 {
-  animation-delay: 3s;
-}
-
-.phone-screen .shot-3 {
-  animation-delay: 6s;
-}
-
-@keyframes slideShow {
-  0% {
-    opacity: 0;
-    transform: scale(1.04);
+  0%{
+    opacity:0;
+    transform:scale(1.04);
   }
 
-  6% {
-    opacity: 1;
-    transform: scale(1);
+  6%{
+    opacity:1;
+    transform:scale(1);
   }
 
-  28% {
-    opacity: 1;
-    transform: scale(1);
+  28%{
+    opacity:1;
+    transform:scale(1);
   }
 
-  34% {
-    opacity: 0;
-    transform: scale(0.98);
+  34%{
+    opacity:0;
+    transform:scale(0.98);
   }
 
-  100% {
-    opacity: 0;
-    transform: scale(0.98);
+  100%{
+    opacity:0;
+    transform:scale(0.98);
   }
 }
 
-.side-card {
-  position: absolute;
-  width: 270px;
-  border-radius: 28px;
-  overflow: hidden;
-  border: 1px solid rgba(255,255,255,0.16);
-  box-shadow: 0 24px 70px rgba(0,0,0,0.48);
-  opacity: 0.78;
-  z-index: 2;
-  background: #111;
+.side-card{
+  position:absolute;
+  width:270px;
+  border-radius:28px;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,0.16);
+  box-shadow:0 24px 70px rgba(0,0,0,0.48);
+  opacity:0.78;
+  z-index:2;
+  background:#111;
 }
 
-.side-card img {
-  width: 100%;
-  display: block;
+.side-card img{
+  width:100%;
+  display:block;
 }
 
-.side-left {
-  left: 3%;
-  top: 15%;
-  transform: rotate(7deg);
+.side-left{
+  left:3%;
+  top:15%;
+  transform:rotate(7deg);
 }
 
-.side-right {
-  right: 2%;
-  bottom: 13%;
-  transform: rotate(-8deg);
+.side-right{
+  right:2%;
+  bottom:13%;
+  transform:rotate(-8deg);
 }
 
-.careers {
-  background: #080808;
-  text-align: center;
-  justify-content: center;
+.careers{
+  background:#080808;
+  text-align:center;
+  justify-content:center;
 }
 
-.center-inner {
-  max-width: 900px;
-  margin: 0 auto;
+.center-inner{
+  max-width:900px;
+  margin:0 auto;
 }
 
-.contact {
-  background: linear-gradient(135deg,#0b0b0b,#050505);
-  text-align: center;
-  justify-content: center;
+.contact{
+  background:linear-gradient(135deg,#0b0b0b,#050505);
+  text-align:center;
+  justify-content:center;
 }
 
-.contact-box {
-  max-width: 760px;
-  padding: 56px 34px;
-  border-radius: 34px;
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.12);
-  box-shadow: 0 30px 90px rgba(0,0,0,0.45);
+.contact-box{
+  max-width:760px;
+  padding:56px 34px;
+  border-radius:34px;
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(255,255,255,0.12);
+  box-shadow:0 30px 90px rgba(0,0,0,0.45);
 }
 
-.contact-mail {
-  display: inline-block;
-  margin-top: 26px;
-  font-size: 24px;
-  font-weight: 900;
-  color: #9cff3a;
+.contact-mail{
+  display:inline-block;
+  margin-top:26px;
+  font-size:24px;
+  font-weight:900;
+  color:#9cff3a;
 }
 
-footer {
-  padding: 34px 8%;
-  background: #030303;
-  color: #777;
-  border-top: 1px solid rgba(255,255,255,0.08);
-  display: flex;
-  justify-content: space-between;
-  gap: 18px;
-  flex-wrap: wrap;
+footer{
+  padding:34px 8%;
+  background:#030303;
+  color:#777;
+  border-top:1px solid rgba(255,255,255,0.08);
+  display:flex;
+  justify-content:space-between;
+  gap:18px;
+  flex-wrap:wrap;
 }
 
-@media (max-width: 1100px) {
-  .game-layout {
-    grid-template-columns: 1fr;
-    gap: 32px;
+@media (max-width:1100px){
+
+  .game-layout{
+    grid-template-columns:1fr;
+    gap:32px;
   }
 
-  .device-stage {
-    height: 620px;
+  .device-stage{
+    height:620px;
   }
 }
 
-@media (max-width: 960px) {
-  .nav {
-    padding: 0 24px;
+@media (max-width:960px){
+
+  .nav{
+    padding:0 24px;
   }
 
-  .nav-menu {
-    display: none;
+  .nav-menu{
+    display:none;
   }
 
-  .page {
-    min-height: auto;
-    padding: 110px 24px 90px;
+  .page{
+    min-height:auto;
+    padding:110px 24px 90px;
   }
 
-  .hero {
-    min-height: 100vh;
+  .hero{
+    min-height:100vh;
   }
 
-  .about-layout {
-    grid-template-columns: 1fr;
-    gap: 46px;
+  .about-layout{
+    grid-template-columns:1fr;
+    gap:46px;
   }
 
-  .history-item {
-    grid-template-columns: 1fr;
-    gap: 8px;
+  .history-item{
+    grid-template-columns:1fr;
+    gap:8px;
   }
 
-  .device-stage {
-    height: 560px;
+  .device-stage{
+    height:560px;
   }
 
-  .phone {
-    width: 250px;
+  .phone{
+    width:250px;
   }
 
-  .side-card {
-    width: 190px;
+  .side-card{
+    width:190px;
   }
 
-  .side-left {
-    left: -4%;
-    top: 18%;
+  .side-left{
+    left:-4%;
+    top:18%;
   }
 
-  .side-right {
-    right: -4%;
-  }
-
-  .store-badge {
-    min-width: 166px;
+  .side-right{
+    right:-4%;
   }
 }
+
 </style>
 </head>
 
 <body>
 
 <nav class="nav">
-  <a href="#" class="nav-logo">STREET COMPLETE</a>
+
+  <a href="#" class="nav-logo">
+    STREET COMPLETE
+  </a>
 
   <div class="nav-menu">
     <a href="#about">ABOUT</a>
@@ -582,15 +531,25 @@ footer {
     <a href="#careers">CAREERS</a>
     <a href="#contact">CONTACT</a>
   </div>
+
 </nav>
 
 <header class="page hero">
+
   <div class="hero-content">
-    <span class="eyebrow">GAME STUDIO</span>
 
-    <h1>Small Team.<br>Big Vision.</h1>
+    <span class="eyebrow">
+      GAME STUDIO
+    </span>
 
-    <p class="hero-sub">우리는 성장의 재미를 만드는 개발팀입니다</p>
+    <h1>
+      Small Team.<br>
+      Big Vision.
+    </h1>
+
+    <p class="hero-sub">
+      우리는 성장의 재미를 만드는 개발팀입니다
+    </p>
 
     <p class="hero-desc">
       STREET COMPLETE는 모바일 RPG의 성장 감각과 협동 플레이의 재미를 중심으로,
@@ -601,13 +560,20 @@ footer {
       <a href="#games" class="btn btn-primary">VIEW GAMES</a>
       <a href="#contact" class="btn btn-secondary">CONTACT</a>
     </div>
+
   </div>
+
 </header>
 
 <section id="about" class="page about">
+
   <div class="about-layout">
+
     <div>
-      <div class="section-label">ABOUT STREET COMPLETE</div>
+
+      <div class="section-label">
+        ABOUT STREET COMPLETE
+      </div>
 
       <h2 class="section-title">
         We Create<br>
@@ -620,12 +586,18 @@ footer {
         유저가 짧은 시간 안에도 확실한 성취감을 느낄 수 있도록 전투, 보상, 성장 구조를 설계하며,
         협동 콘텐츠를 통해 함께 플레이하는 재미까지 확장해 나가고 있습니다.
       </p>
+
     </div>
 
     <div class="history-panel">
-      <div class="section-label">STREET COMPLETE HISTORY</div>
 
-      <h3 class="history-title">Our Journey</h3>
+      <div class="section-label">
+        STREET COMPLETE HISTORY
+      </div>
+
+      <h3 class="history-title">
+        Our Journey
+      </h3>
 
       <div class="history-item">
         <div class="history-date">2024.09</div>
@@ -651,18 +623,28 @@ footer {
         <div class="history-date">2026.05</div>
         <div class="history-text">2026 게임더하기 사업 선정</div>
       </div>
+
     </div>
+
   </div>
+
 </section>
 
 <section id="games" class="page games">
+
   <div class="game-layout">
+
     <div class="game-info">
-      <div class="section-label">GAMES</div>
 
-      <img src="game-logo.png" class="game-logo" alt="픽셀 법사 키우기">
+      <div class="section-label">
+        GAMES
+      </div>
 
-      <h2 class="section-title">픽셀 법사 키우기</h2>
+      <img src="game-logo.png" class="game-logo">
+
+      <h2 class="section-title">
+        픽셀 법사 키우기
+      </h2>
 
       <p class="section-desc">
         유저들과 함께 실시간으로 협동하는 보스 레이드 콘텐츠를 통해
@@ -670,78 +652,64 @@ footer {
       </p>
 
       <div class="store-row">
-        <a class="store-badge" href="https://play.google.com/store/apps/details?id=com.streetcomplete.pixelmagician" target="_blank">
-          <div class="badge-icon">
-            <svg viewBox="0 0 512 512">
-              <path fill="#00F076" d="M87 38c-15 8-24 24-24 44v348c0 20 9 36 24 44l210-218L87 38z"/>
-              <path fill="#00D6FF" d="M297 256L87 38c6-3 13-4 21-4 10 0 20 3 29 8l242 137-82 77z"/>
-              <path fill="#FFD400" d="M297 256l82 77-242 137c-16 9-35 10-50 4l210-218z"/>
-              <path fill="#FF3B30" d="M379 179l46 26c32 18 32 84 0 102l-46 26-82-77 82-77z"/>
-            </svg>
-          </div>
 
-          <div class="badge-copy">
-            <span class="badge-small">GET IT ON</span>
-            <span class="badge-big">Google Play</span>
-          </div>
+        <a href="https://play.google.com/store/apps/details?id=com.streetcomplete.pixelmagician" target="_blank">
+          <img src="google-play-badge.svg" class="official-badge">
         </a>
 
-        <a class="store-badge" href="https://apps.apple.com/kr/app/%ED%94%BD%EC%85%80-%EB%B2%95%EC%82%AC-%ED%82%A4%EC%9A%B0%EA%B8%B0-%EB%B0%A9%EC%B9%98%ED%98%95-rpg/id6741889270" target="_blank">
-          <div class="badge-icon">
-            <svg viewBox="0 0 512 512">
-              <path fill="#fff" d="M353 272c0-62 51-92 53-94-29-43-75-49-91-50-39-4-75 23-95 23s-50-22-83-22c-43 1-83 25-105 64-45 78-12 194 32 257 21 31 47 66 80 65 32-1 44-21 83-21s50 21 84 20c35-1 57-32 78-63 25-36 35-72 35-74-1 0-69-27-71-105zM289 88c18-22 30-52 27-82-26 1-58 17-77 39-17 20-31 51-27 80 29 2 59-15 77-37z"/>
-            </svg>
-          </div>
-
-          <div class="badge-copy">
-            <span class="badge-small">Download on the</span>
-            <span class="badge-big">App Store</span>
-          </div>
+        <a href="https://apps.apple.com/kr/app/%ED%94%BD%EC%85%80-%EB%B2%95%EC%82%AC-%ED%82%A4%EC%9A%B0%EA%B8%B0-%EB%B0%A9%EC%B9%98%ED%98%95-rpg/id6741889270" target="_blank">
+          <img src="app-store-badge.svg" class="official-badge">
         </a>
 
-        <a class="store-badge" href="https://m.onestore.co.kr/v2/ko-kr/app/0000778905?scYn=Y" target="_blank">
-          <div class="badge-icon">
-            <svg viewBox="0 0 512 512">
-              <rect x="54" y="54" width="404" height="404" rx="96" fill="#ff3b4f"/>
-              <path fill="#fff" d="M176 170l94-44h50v260h-64V203l-57 27-23-60z"/>
-            </svg>
-          </div>
-
-          <div class="badge-copy">
-            <span class="badge-small">Download on the</span>
-            <span class="badge-big one">ONE store</span>
-          </div>
+        <a href="https://m.onestore.co.kr/v2/ko-kr/app/0000778905?scYn=Y" target="_blank">
+          <img src="one-store-badge.png" class="official-badge">
         </a>
+
       </div>
+
     </div>
 
     <div class="device-stage">
+
       <div class="device-glow"></div>
 
       <div class="side-card side-left">
-        <img src="game-screenshot-2.png" alt="게임 스크린샷">
+        <img src="game-screenshot-2.png">
       </div>
 
       <div class="phone">
+
         <div class="phone-screen">
-          <img class="shot-1" src="game-screenshot-1.png" alt="게임 스크린샷 1">
-          <img class="shot-2" src="game-screenshot-2.png" alt="게임 스크린샷 2">
-          <img class="shot-3" src="game-screenshot-3.png" alt="게임 스크린샷 3">
+
+          <img class="shot-1" src="game-screenshot-1.png">
+          <img class="shot-2" src="game-screenshot-2.png">
+          <img class="shot-3" src="game-screenshot-3.png">
+
         </div>
+
       </div>
 
       <div class="side-card side-right">
-        <img src="game-screenshot-3.png" alt="게임 스크린샷">
+        <img src="game-screenshot-3.png">
       </div>
+
     </div>
+
   </div>
+
 </section>
 
 <section id="careers" class="page careers">
-  <div class="center-inner">
-    <div class="section-label">CAREERS</div>
 
-    <h2 class="section-title">함께 성장할 준비</h2>
+  <div class="center-inner">
+
+    <div class="section-label">
+      CAREERS
+    </div>
+
+    <h2 class="section-title">
+      함께 성장할 준비
+    </h2>
 
     <p class="section-desc">
       STREET COMPLETE는 더 좋은 게임 경험을 만들기 위해 꾸준히 도전하고 있습니다.
@@ -750,15 +718,25 @@ footer {
 
     <br><br>
 
-    <a href="#contact" class="btn btn-primary">CONTACT</a>
+    <a href="#contact" class="btn btn-primary">
+      CONTACT
+    </a>
+
   </div>
+
 </section>
 
 <section id="contact" class="page contact">
-  <div class="contact-box">
-    <div class="section-label">CONTACT</div>
 
-    <h2 class="section-title">Let’s Build Something Great</h2>
+  <div class="contact-box">
+
+    <div class="section-label">
+      CONTACT
+    </div>
+
+    <h2 class="section-title">
+      Let’s Build Something Great
+    </h2>
 
     <p class="section-desc">
       프로젝트, 협업, 문의 사항이 있다면 아래 메일로 연락해주세요.
@@ -767,13 +745,23 @@ footer {
     <a href="mailto:streetcomplete7@gmail.com" class="contact-mail">
       streetcomplete7@gmail.com
     </a>
+
   </div>
+
 </section>
 
 <footer>
-  <div>© 2026 STREET COMPLETE. All Rights Reserved.</div>
-  <div>Small Team. Big Vision.</div>
+
+  <div>
+    © 2026 STREET COMPLETE. All Rights Reserved.
+  </div>
+
+  <div>
+    Small Team. Big Vision.
+  </div>
+
 </footer>
 
 </body>
 </html>
+```
