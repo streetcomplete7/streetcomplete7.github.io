@@ -1,1 +1,648 @@
 
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>STREET COMPLETE</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, "Noto Sans KR", sans-serif;
+      background: #050505;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 76px;
+      padding: 0 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 100;
+      background: rgba(5, 5, 5, 0.72);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .nav-logo {
+      font-size: 22px;
+      font-weight: 900;
+      letter-spacing: 1.5px;
+    }
+
+    .nav-menu {
+      display: flex;
+      gap: 38px;
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      color: #d4d4d4;
+    }
+
+    .nav-menu a:hover {
+      color: #9cff3a;
+    }
+
+    .page {
+      min-height: 100vh;
+      padding: 110px 8%;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero {
+      background:
+        linear-gradient(90deg, rgba(0,0,0,0.9), rgba(0,0,0,0.58), rgba(0,0,0,0.25)),
+        url("hero-bg.png");
+      background-size: cover;
+      background-position: center;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 78% 46%, rgba(156,255,58,0.22), transparent 34%),
+        linear-gradient(180deg, transparent 60%, #050505 100%);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 780px;
+    }
+
+    .eyebrow,
+    .section-label {
+      display: inline-block;
+      margin-bottom: 20px;
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 3px;
+      color: #9cff3a;
+    }
+
+    .hero h1 {
+      font-size: clamp(56px, 8vw, 112px);
+      line-height: 0.95;
+      font-weight: 900;
+      letter-spacing: -3px;
+      margin-bottom: 26px;
+    }
+
+    .hero-sub {
+      font-size: clamp(20px, 2.2vw, 30px);
+      font-weight: 800;
+      color: #eeeeee;
+      margin-bottom: 18px;
+    }
+
+    .hero-desc,
+    .section-desc {
+      font-size: 18px;
+      line-height: 1.85;
+      color: #c7c7c7;
+    }
+
+    .hero-desc {
+      max-width: 640px;
+      margin-bottom: 36px;
+    }
+
+    .btn-row {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 150px;
+      padding: 15px 25px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 900;
+      letter-spacing: 0.5px;
+      border: 1px solid rgba(255,255,255,0.16);
+      transition: 0.25s;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #9cff3a, #4ade80);
+      color: #081108;
+      box-shadow: 0 0 32px rgba(156,255,58,0.28);
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.08);
+      color: #fff;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+    }
+
+    .section-title {
+      font-size: clamp(38px, 5.5vw, 76px);
+      font-weight: 900;
+      letter-spacing: -3px;
+      line-height: 1.02;
+      margin-bottom: 26px;
+    }
+
+    .about {
+      background: #080808;
+    }
+
+    .about-layout {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 72px;
+      align-items: center;
+    }
+
+    .about-copy {
+      font-size: 18px;
+      line-height: 1.9;
+      color: #c8c8c8;
+    }
+
+    .history-panel {
+      padding: 44px;
+      border-radius: 34px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: 0 30px 80px rgba(0,0,0,0.35);
+    }
+
+    .history-title {
+      font-size: 30px;
+      font-weight: 900;
+      margin-bottom: 28px;
+    }
+
+    .history-item {
+      display: grid;
+      grid-template-columns: 130px 1fr;
+      gap: 24px;
+      padding: 22px 0;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .history-item:last-child {
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .history-date {
+      color: #9cff3a;
+      font-weight: 900;
+    }
+
+    .history-text {
+      color: #eeeeee;
+      font-weight: 700;
+      line-height: 1.6;
+    }
+
+    .games {
+      background:
+        linear-gradient(90deg, rgba(5,5,5,0.96), rgba(5,5,5,0.78), rgba(5,5,5,0.48)),
+        url("hero-bg.png");
+      background-size: cover;
+      background-position: center;
+    }
+
+    .game-layout {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 0.92fr 1.08fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .game-logo {
+      width: min(440px, 100%);
+      margin-bottom: 26px;
+      filter: drop-shadow(0 0 22px rgba(156,255,58,0.18));
+    }
+
+    .store-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 34px;
+    }
+
+    .store-btn {
+      min-width: 150px;
+      padding: 14px 20px;
+      border-radius: 14px;
+      background: #fff;
+      color: #111;
+      font-size: 14px;
+      font-weight: 900;
+      text-align: center;
+      transition: 0.25s;
+    }
+
+    .store-btn:hover {
+      transform: translateY(-3px);
+      background: #9cff3a;
+    }
+
+    .device-stage {
+      position: relative;
+      width: min(720px, 100%);
+      margin-left: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .device-glow {
+      position: absolute;
+      width: 90%;
+      height: 90%;
+      background: radial-gradient(circle, rgba(156,255,58,0.22), transparent 60%);
+      filter: blur(20px);
+    }
+
+    .phone {
+      position: relative;
+      z-index: 2;
+      width: 290px;
+      aspect-ratio: 9 / 19.5;
+      padding: 12px;
+      border-radius: 38px;
+      background: linear-gradient(145deg, #e5e5e5, #111 22%, #000);
+      box-shadow: 0 35px 90px rgba(0,0,0,0.62);
+      transform: rotate(-4deg);
+    }
+
+    .phone::before {
+      content: "";
+      position: absolute;
+      top: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 92px;
+      height: 24px;
+      border-radius: 999px;
+      background: #050505;
+      z-index: 5;
+    }
+
+    .phone-screen {
+      width: 100%;
+      height: 100%;
+      border-radius: 30px;
+      overflow: hidden;
+      background: #111;
+      position: relative;
+    }
+
+    .phone-screen img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      animation: slideShow 9s infinite;
+    }
+
+    .shot-2,
+    .shot-3 {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+    }
+
+    .shot-1 { animation-delay: 0s; }
+    .shot-2 { animation-delay: 3s; }
+    .shot-3 { animation-delay: 6s; }
+
+    @keyframes slideShow {
+      0%, 28% { opacity: 1; }
+      33%, 100% { opacity: 0; }
+    }
+
+    .side-card {
+      position: absolute;
+      width: 240px;
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.16);
+      box-shadow: 0 24px 70px rgba(0,0,0,0.45);
+      opacity: 0.72;
+    }
+
+    .side-card img {
+      width: 100%;
+      display: block;
+    }
+
+    .side-left {
+      left: 0;
+      top: 16%;
+      transform: rotate(7deg);
+    }
+
+    .side-right {
+      right: 0;
+      bottom: 14%;
+      transform: rotate(-8deg);
+    }
+
+    .careers {
+      background: #080808;
+      text-align: center;
+      justify-content: center;
+    }
+
+    .center-inner {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .contact {
+      background: linear-gradient(135deg, #0b0b0b, #050505);
+      text-align: center;
+      justify-content: center;
+    }
+
+    .contact-box {
+      max-width: 760px;
+      padding: 56px 34px;
+      border-radius: 34px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: 0 30px 90px rgba(0,0,0,0.45);
+    }
+
+    .contact-mail {
+      display: inline-block;
+      margin-top: 26px;
+      font-size: 24px;
+      font-weight: 900;
+      color: #9cff3a;
+    }
+
+    footer {
+      padding: 34px 8%;
+      background: #030303;
+      color: #777;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 960px) {
+      .nav {
+        padding: 0 24px;
+      }
+
+      .nav-menu {
+        display: none;
+      }
+
+      .page {
+        min-height: auto;
+        padding: 110px 24px 90px;
+      }
+
+      .hero {
+        min-height: 100vh;
+      }
+
+      .about-layout,
+      .game-layout {
+        grid-template-columns: 1fr;
+        gap: 46px;
+      }
+
+      .history-item {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+
+      .device-stage {
+        min-height: 620px;
+      }
+
+      .side-card {
+        width: 180px;
+      }
+
+      .side-left {
+        left: -10px;
+      }
+
+      .side-right {
+        right: -10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="nav">
+    <a href="#" class="nav-logo">STREET COMPLETE</a>
+
+    <div class="nav-menu">
+      <a href="#about">ABOUT</a>
+      <a href="#games">GAMES</a>
+      <a href="#careers">CAREERS</a>
+      <a href="#contact">CONTACT</a>
+    </div>
+  </nav>
+
+  <header class="page hero">
+    <div class="hero-content">
+      <span class="eyebrow">GAME STUDIO</span>
+
+      <h1>Small Team.<br>Big Vision.</h1>
+
+      <p class="hero-sub">우리는 성장의 재미를 만드는 개발팀입니다</p>
+
+      <p class="hero-desc">
+        STREET COMPLETE는 모바일 RPG의 성장 감각과 협동 플레이의 재미를 중심으로,
+        오래 즐길 수 있는 게임 경험을 만들어갑니다.
+      </p>
+
+      <div class="btn-row">
+        <a href="#games" class="btn btn-primary">VIEW GAMES</a>
+        <a href="#contact" class="btn btn-secondary">CONTACT</a>
+      </div>
+    </div>
+  </header>
+
+  <section id="about" class="page about">
+    <div class="about-layout">
+      <div>
+        <div class="section-label">ABOUT STREET COMPLETE</div>
+
+        <h2 class="section-title">
+          We Create<br>
+          Growth<br>
+          Experience.
+        </h2>
+
+        <p class="about-copy">
+          STREET COMPLETE는 성장의 재미를 중심으로 모바일 게임을 개발하는 게임 스튜디오입니다.
+          유저가 짧은 시간 안에도 확실한 성취감을 느낄 수 있도록 전투, 보상, 성장 구조를 설계하며,
+          협동 콘텐츠를 통해 함께 플레이하는 재미까지 확장해 나가고 있습니다.
+        </p>
+      </div>
+
+      <div class="history-panel">
+        <div class="section-label">STREET COMPLETE HISTORY</div>
+        <h3 class="history-title">Our Journey</h3>
+
+        <div class="history-item">
+          <div class="history-date">2024.09</div>
+          <div class="history-text">스트리트컴플릿 설립</div>
+        </div>
+
+        <div class="history-item">
+          <div class="history-date">2024.11</div>
+          <div class="history-text">&lt;픽셀 법사 키우기&gt; 대한민국 AOS 출시</div>
+        </div>
+
+        <div class="history-item">
+          <div class="history-date">2025.04</div>
+          <div class="history-text">구글 창구 프로그램 7기 선정</div>
+        </div>
+
+        <div class="history-item">
+          <div class="history-date">2025.04</div>
+          <div class="history-text">&lt;픽셀 법사 키우기&gt; 대한민국 iOS 출시</div>
+        </div>
+
+        <div class="history-item">
+          <div class="history-date">2026.05</div>
+          <div class="history-text">2026 게임더하기 사업 선정</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="games" class="page games">
+    <div class="game-layout">
+      <div>
+        <div class="section-label">GAMES</div>
+
+        <img src="game-logo.png" alt="픽셀 법사 키우기" class="game-logo" />
+
+        <h2 class="section-title">픽셀 법사 키우기</h2>
+
+        <p class="section-desc">
+          유저들과 함께 실시간으로 협동하는 보스 레이드 콘텐츠를 통해
+          협력 플레이의 재미까지 경험할 수 있는 모바일 RPG입니다.
+        </p>
+
+        <div class="store-row">
+          <a class="store-btn" href="https://play.google.com/store/apps/details?id=com.streetcomplete.pixelmagician" target="_blank">
+            Play Store
+          </a>
+
+          <a class="store-btn" href="https://apps.apple.com/kr/app/%ED%94%BD%EC%85%80-%EB%B2%95%EC%82%AC-%ED%82%A4%EC%9A%B0%EA%B8%B0-%EB%B0%A9%EC%B9%98%ED%98%95-rpg/id6741889270" target="_blank">
+            App Store
+          </a>
+
+          <a class="store-btn" href="https://m.onestore.co.kr/v2/ko-kr/app/0000778905?scYn=Y" target="_blank">
+            One Store
+          </a>
+        </div>
+      </div>
+
+      <div class="device-stage">
+        <div class="device-glow"></div>
+
+        <div class="side-card side-left">
+          <img src="game-screenshot-2.png" alt="게임 스크린샷" />
+        </div>
+
+        <div class="phone">
+          <div class="phone-screen">
+            <img class="shot-1" src="game-screenshot-1.png" alt="게임 스크린샷 1" />
+            <img class="shot-2" src="game-screenshot-2.png" alt="게임 스크린샷 2" />
+            <img class="shot-3" src="game-screenshot-3.png" alt="게임 스크린샷 3" />
+          </div>
+        </div>
+
+        <div class="side-card side-right">
+          <img src="game-screenshot-3.png" alt="게임 스크린샷" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="careers" class="page careers">
+    <div class="center-inner">
+      <div class="section-label">CAREERS</div>
+
+      <h2 class="section-title">함께 성장할 준비</h2>
+
+      <p class="section-desc">
+        STREET COMPLETE는 더 좋은 게임 경험을 만들기 위해 꾸준히 도전하고 있습니다.
+        앞으로 더 큰 비전을 함께 만들어갈 동료를 만날 준비를 하고 있습니다.
+      </p>
+
+      <br><br>
+
+      <a href="#contact" class="btn btn-primary">CONTACT</a>
+    </div>
+  </section>
+
+  <section id="contact" class="page contact">
+    <div class="contact-box">
+      <div class="section-label">CONTACT</div>
+
+      <h2 class="section-title">Let’s Build Something Great</h2>
+
+      <p class="section-desc">
+        프로젝트, 협업, 문의 사항이 있다면 아래 메일로 연락해주세요.
+      </p>
+
+      <a href="mailto:streetcomplete7@gmail.com" class="contact-mail">
+        streetcomplete7@gmail.com
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <div>© 2026 STREET COMPLETE. All Rights Reserved.</div>
+    <div>Small Team. Big Vision.</div>
+  </footer>
+
+</body>
+</html>
